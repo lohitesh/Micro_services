@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ui-web-app
+  labels:
+app: ui-web
+spec:
+selector:
+matchLabels:
+      app: ui-web
+template:
+metadata:
+      labels:
+        app: ui-web
+    spec:
+      containers:
+      - name: nodejs-app 
+        image: docker.io/lohitesh/node-web-app
+        ports: 
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ui-web-service
+spec:
+  type: NodePort
+  ports:
+  - nodePort: 32006
+    port: 8080
+    targetPort: 8080
+  selector:
+    app: ui-web
