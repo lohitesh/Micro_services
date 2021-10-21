@@ -3,13 +3,13 @@ kind: Deployment
 metadata:
   name: ui-web-app
   labels:
-app: ui-web
+    app: ui-web
 spec:
-selector:
-matchLabels:
+  selector:
+    matchLabels:
       app: ui-web
-template:
-metadata:
+  template:
+    metadata:
       labels:
         app: ui-web
     spec:
