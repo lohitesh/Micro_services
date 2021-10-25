@@ -1,0 +1,16 @@
+replicaCount: 1
+
+image:
+  repository: lohitesh/node-web-app
+  pullPolicy: IfNotPresent
+  tag: ""
+
+service:
+  type: NodePort
+  port: 8080
+  targetport: 8080
+  nodeport: 32006
+
+container:
+  name: nodejs-app
+
